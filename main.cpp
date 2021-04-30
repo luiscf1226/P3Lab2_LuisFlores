@@ -42,7 +42,7 @@ int main(int argc, char** argv) {
 						arr2[i]=0;	
 					}
 				recursion(0,max+2,arr1,arr2);
-				//agrego 2 vueltas mas para que me imprima 	
+				//agrego 2 vueltas mas para que me imprima lo debido	
 				break;
 			}
 			case 2:{
@@ -108,9 +108,9 @@ void recursion(int n , int max, int arr[100],int arr2[100]){
 void print3(int a[],int a2[]){
 
 	for(int i=1;i<=10;i++){
-		cout<<" vuelta : "<<i<<"   ";
+		cout<<" "<<i<<"   ";
 		print4(a[i]);
-		cout<<endl<<"              ";
+		cout<<endl<<"     ";
 		
 		//cout<<"         numero: "<<a[i]<<"     "<<endl;
 		print5(a2[i]);
@@ -123,7 +123,7 @@ void print3(int a[],int a2[]){
 void print4(int n){
 	int cont=0;
 	char un=177;
-	while(cont<=n){
+	while(cont<n){
 		cout<<un;
 		cont++;
 	}	
@@ -132,7 +132,7 @@ void print4(int n){
 void print5(int n){
 	int cont=0;
 	char un=178;
-	while(cont<=n){
+	while(cont<n){
 		cout<<un;
 		cont++;
 	}	
@@ -141,7 +141,7 @@ void print5(int n){
 void desviacion(int a[],int size){
 	double suma=0.00;
 	double prom=0.00;
-	for(int i=0;i<=20;i++){
+	for(int i=0;i<20;i++){
 		suma=suma+a[i];
 	}
 
@@ -149,7 +149,7 @@ void desviacion(int a[],int size){
 
 	double num=0.00;
 
-	for (int j=0;j<=20;j++){
+	for (int j=0;j<20;j++){
 		num+=pow(a[j]-prom,2);
 		
 	}
