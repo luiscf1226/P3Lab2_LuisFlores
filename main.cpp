@@ -35,16 +35,14 @@ int main(int argc, char** argv) {
 				float max;
 				cout<<"Ingrese un valor de max : "<<endl;
 				cin>>max;
-				while(max>0&&max<100){
-					int arr1[100];
-					int arr2[100];
-					for(int i=0;i<=100;i++){
+				int arr1[100];
+				int arr2[100];
+					for(int i=0;i<100;i++){
 						arr1[i]=0;
-						arr[2]=0;	
+						arr2[i]=0;	
 					}
-					recursion(0,max,arr1,arr2);
-					
-				}
+				recursion(0,max+2,arr1,arr2);
+				//agrego 2 vueltas mas para que me imprima 	
 				break;
 			}
 			case 2:{
@@ -63,7 +61,6 @@ int main(int argc, char** argv) {
 				int arr1[10];
 				int arr2[10];
 				srand (time(NULL));
-				
 				for(int i=0;i<=10;i++){
 					arr1[i]=0+(rand()%20);
 					arr2[i]=0+(rand()%20);
@@ -81,31 +78,28 @@ int main(int argc, char** argv) {
 	}//while
 	return 0;
 }
-void recursion(int n , int max, int arr[],int arr2[]){
+void recursion(int n , int max, int arr[100],int arr2[100]){
 	
 	if(n==max){
 		cout<<"FINNNN "<<endl;
+		
 	}else{
-		if(n==0){
-			arr2[n]=1;
-			arr[n]=1;
-			cout<<arr2[n]<<endl;
-			recursion(n+1,max,arr,arr2);
-		}else{
-			for(int i=0;i<n;i++){
+		for(int i=0;i<n;i++){
+			if(i==0||i==n-1){
+				arr2[i]=1;
+			}
+			else{
 				arr2[i]=arr[i-1]+arr[i];
-				cout<<arr2[i]<<"   ";
-				arr[i]=arr2[i];
-				arr2[i]=0;
+				
 			}
-			for(int i=0;i<n;i++){
-				arr[i]=arr2[i];
-				arr2[i]=0;
-			}
-			cout<<endl;	
-			recursion(n+1,max,arr,arr2);
-			
 		}
+		for(int i=0;i<n;i++){
+			arr[i]=arr2[i];
+			cout<<arr2[i]<< " ";
+			arr2[i]=0;
+		}
+		cout<<endl;
+		recursion(n+1,max,arr,arr2);
 		
 		
 	}
@@ -150,18 +144,18 @@ void desviacion(int a[],int size){
 	for(int i=0;i<=20;i++){
 		suma=suma+a[i];
 	}
-	cout<<suma<<endl;
+
 	prom=suma/20.00;
-	cout<<prom<<endl;
+
 	double num=0.00;
-	cout<<"COMIENXA"<<endl;
-	for (int j=0;j<20;j++){
+
+	for (int j=0;j<=20;j++){
 		num+=pow(a[j]-prom,2);
-		cout<<num<<endl;
+		
 	}
 
 	double resp=num/20.00;
-	cout<<resp<<endl;
+
 	
 	cout<<"la respuesta es: "<<sqrt(resp)<<endl;
 	
