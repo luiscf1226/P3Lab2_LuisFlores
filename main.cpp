@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdlib>
+#include <math.h> 
+#include <cmath>
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 using namespace std;
 void recursion(int ,int ,int [],int []);
@@ -7,6 +9,7 @@ void print(int [],int );
 void print3(int[],int[]);
 void print4(int);
 void print5(int);
+void sumatoria(int[],int);
 
 int menu(){
 
@@ -43,7 +46,14 @@ int main(int argc, char** argv) {
 				break;
 			}
 			case 2:{
-		
+				int arr[20];
+				for(int i=0;i<=20;i++){
+					arr[i]=0+(rand()%100);
+				}
+				for(int i=0;i<=20;i++){
+					cout<<"    "<<arr[i]<<endl;
+				}
+				sumatoria(arr,20);
 				break;
 			}
 			case 3:{
@@ -54,7 +64,6 @@ int main(int argc, char** argv) {
 					arr2[i]=0+(rand()%20);
 				}
 				print3(arr1,arr2);
-			
 				
 				break;
 			}
@@ -85,23 +94,19 @@ void recursion(int n , int max, int arr[],int arr2[]){
 	
 }
 void print3(int a[],int a2[]){
-	char un=177;
-	char dos=178;
-	int c1,c2,c3,c4,c5,c6,c7,c8,c9,c10;
-	c1=a[0];
-	c2=a[1];
-	c3=a[2];
-	c4=a[3];
-	c5=a[4];
-	c6=a[5];
-	c7=a[6];
-	c8=a[7];
-	c9=a[8];
-	c10=a[9];
-	cout<<c1<<"   "<<c2<<" "<<c3<<"   "<<c4<<" "<<"   "<<c5<<" "<<"   "<<c6<<" "<<"   "<<c7<<" "<<"   "<<c8<<" "<<"   "<<c9<<" "<<c10<<endl;
-	
-	print4(c1);
-	
+
+	for(int i=1;i<=10;i++){
+		cout<<" vuelta : "<<i<<"   ";
+		print4(a[i]);
+		cout<<endl<<"              ";
+		
+		//cout<<"         numero: "<<a[i]<<"     "<<endl;
+		print5(a2[i]);
+		cout<<endl;
+		//cout<<"         numero: "<<a2[i];
+		cout<<endl;
+	}
+
 }
 void print4(int n){
 	int cont=0;
@@ -110,6 +115,41 @@ void print4(int n){
 		cout<<un;
 		cont++;
 	}	
+	
+}
+void print5(int n){
+	int cont=0;
+	char un=178;
+	while(cont<=n){
+		cout<<un;
+		cont++;
+	}	
+	
+}
+void sumatoria(int a[],int size){
+	double suma=0.00;
+	double prom=0.00;
+	for(int i=0;i<=20;i++){
+		suma=suma+a[i];
+	}
+	cout<<suma<<endl;
+	prom=suma/20.00;
+	cout<<prom<<endl;
+	int n=20;
+	
+	double cc=0.00;
+	double f=0.00;
+	for (int j=0;j<20;j++){
+		int num=a[j];
+		double acum=(num-prom);
+		
+	}
+	cc=pow(acum,2);
+	cout<<cc<<endl;
+	double resp=cc/20.00;
+	cout<<resp<<endl;
+	
+	cout<<"la respuesta es: "<<sqrt(resp)<<endl;
 	
 }
 
